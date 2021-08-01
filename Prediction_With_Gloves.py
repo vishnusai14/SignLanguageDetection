@@ -151,8 +151,7 @@ while True:
     cv2.rectangle(frame_copy, (ROI_left, ROI_top), (ROI_right,
     ROI_bottom), (255,128,0), 3)
     
-    cv2.imshow("Masked Image", masked_image)
-    cv2.imshow('Original Image', frame_copy)
+
     
     #Prediction
     
@@ -163,6 +162,8 @@ while True:
     result = classifier.predict(reshaped_masked_image)
 
     cv2.putText(frame_copy, predict_image(result),(170, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
+    cv2.imshow("Masked Image", masked_image)
+    cv2.imshow('Original Image', frame_copy)
     
     # Close windows with Esc
     k = cv2.waitKey(1) & 0xFF
